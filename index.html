@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="pt-br" ng-app="app" >
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Portaria Aruanã</title>
+
+	<link href="css/bootstrap.min.css" rel="stylesheet" >
+
+<style>
+	table, td, th {  
+	  border: 1px solid #ddd;
+	  text-align: left;
+	}
+
+	table {
+	  border-collapse: collapse;
+	}
+</style>
+
+</head>
+<body ng-controller="despesas-controller" id="controller">
+
+	<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+		<a class="navbar-brand" href="#">Portaria Aruanã</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarCollapse">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item active">
+					<a class="nav-link" href="#proprietarios">Proprietários</a>
+				</li>
+				<li class="nav-item active">
+					<a class="nav-link" href="#autorizados">Autorizados</a>
+				</li>
+			</ul>			
+		</div>
+	</nav>
+
+	<main role="main" class="container">
+
+		<br><br><br>
+
+		<h4 id="proprietarios">Proprietários</h4>
+
+		<table>
+			<thead>
+				<tr>
+					<th>Lote</th>
+					<th>Nome</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="item in proprietarios" ng-click="detalhesProprietario(item)" ng-style="{'background-color':'{{item.color}}'}">
+					<td>{{item.lote}}</td>
+					<td>{{item.nome}}</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<br><br>
+		<h4 id="autorizados">Autorizados</h4>
+		
+		<table>
+			<thead>
+				<tr>
+					<th>Lote</th>
+					<th>Nome</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="item in liberacoes" ng-click="detalhesAutorizado(item)">
+					<td>{{item.lote}}</td>
+					<td>{{item.nome}}</td>
+				</tr>
+			</tbody>
+		</table>
+
+	</main>
+
+	<script src="js/angular.js"></script>
+	<script src="js/index.js"></script>
+
+	<script src="js/jquery-3.3.1.slim.min.js"></script>
+	<script>window.jQuery || document.write('<script src="js/jquery-slim.min.js"><\/script>')</script>
+	<script src="js/bootstrap.bundle.min.js"></script>	
+</body>
+</html>
